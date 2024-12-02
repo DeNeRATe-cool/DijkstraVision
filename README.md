@@ -13,6 +13,7 @@
 
 ### 运行
 
+> [仓库这边请 click here](https://github.com/DeNeRATe-cool/DijkstraVision)
 ```bash
 npm install
 npm run dev
