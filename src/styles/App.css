@@ -1,0 +1,551 @@
+.app {
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 16px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.visualization-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: calc(100vh - 180px);
+    padding-bottom: 50px;
+}
+
+.graph-container {
+    flex: 2;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    max-height: 450px;
+}
+
+.algorithm-status {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    min-height: 100px;
+    max-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 0;
+}
+
+.algorithm-status h3 {
+    color: #2c3e50;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3498db;
+}
+
+.step-description {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 4px solid #3498db;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.control-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: calc(100vh - 180px);
+    padding-bottom: 50px;
+    padding-right: 16px;
+    margin-right: -16px;
+    overflow-y: auto;
+}
+
+.control-panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-right: 0;
+}
+
+.panel-section {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.panel-section h3 {
+    color: #262626;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    color: #262626;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #fafafa;
+}
+
+input:focus {
+    border-color: #a8a8a8;
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.distances {
+    margin-top: 16px;
+}
+
+.distance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.distance-item {
+    background: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.status-info {
+    background: #3498db;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.button-group, .algorithm-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 80px;
+}
+
+@media (max-width: 1400px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .control-container {
+        width: 100%;
+        height: auto;
+    }
+    
+    .visualization-panel {
+        height: 60vh;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.terminal {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-right: 0;
+}
+
+.terminal-header {
+    background: linear-gradient(45deg, #405DE6, #5851DB);
+    padding: 16px;
+}
+
+.terminal-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.terminal-content {
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.primary-button {
+    background: linear-gradient(45deg, #405DE6, #5851DB);
+    color: white;
+}
+
+.secondary-button {
+    background: linear-gradient(45deg, #833AB4, #C13584);
+    color: white;
+}
+
+.danger-button {
+    background: linear-gradient(45deg, #FD1D1D, #F56040);
+    color: white;
+}
+
+.analysis-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.analysis-controls button {
+    flex: 1;
+}
+
+.algorithm-controls {
+    display: grid;
+    gap: 12px;
+}
+
+.algorithm-controls button {
+    padding: 10px 16px;
+    font-size: 12px;
+}
+
+/* 当处于分析模式时的布局 */
+.algorithm-controls.analyzing {
+    grid-template-columns: 1fr;
+}
+
+.algorithm-control-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.algorithm-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.algorithm-controls.analyzing {
+    grid-template-columns: 1fr;
+}
+
+.control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    background: #0095f6;
+    color: white;
+}
+
+.control-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.control-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button-icon {
+    font-size: 1.2rem;
+}
+
+.primary-button {
+    background: linear-gradient(45deg, #405DE6, #5851DB);
+    color: white;
+}
+
+.secondary-button {
+    background: linear-gradient(45deg, #833AB4, #C13584);
+    color: white;
+}
+
+.danger-button {
+    background: linear-gradient(45deg, #FD1D1D, #F56040);
+    color: white;
+}
+
+.analysis-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.analysis-controls .control-button {
+    min-width: 0;
+    padding: 12px;
+}
+
+/* 添加动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.algorithm-controls button {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.edit-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    background: #0095f6;
+    color: white;
+    min-width: 0;
+}
+
+.control-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+.control-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button-icon {
+    font-size: 1.1rem;
+}
+
+/* 统一所有按钮的基础样式 */
+.algorithm-controls button,
+.analysis-controls button,
+.edit-controls button {
+    background: #0095f6;
+    color: white;
+    font-size: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* 特殊按钮样式 */
+.algorithm-controls .primary-button {
+    background: #0095f6;
+}
+
+.algorithm-controls .secondary-button {
+    background: #0095f6;
+}
+
+/* 移除之前的渐变背景 */
+.primary-button,
+.secondary-button,
+.danger-button {
+    background: #0095f6;
+    color: white;
+}
+
+/* 统一的悬停效果 */
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+/* 统一的禁用状态 */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    animation: fadeIn 0.2s ease-out;
+}
+
+.github-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.github-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #0095f6;
+}
+
+.github-icon {
+    font-size: 1.2rem;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        animation: none;
+    }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 12px;
+    color: #666;
+    font-size: 0.9rem;
+    background: white;
+    border-top: 1px solid #eee;
+    z-index: 1000;
+}
+
+.copyright {
+    font-weight: 500;
+}
+
+.toolbar-button {
+    font-size: 12px;
+} 
